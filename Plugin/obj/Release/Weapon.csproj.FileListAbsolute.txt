@@ -1,0 +1,2 @@
+C:\Users\mugen\source\repos\jotunnlib\Weapons\obj\Release\Weapon.csprojAssemblyReference.cache
+C:\Users\mugen\source\repos\jotunnlib\Weapons\obj\Release\Weapon.csproj.CoreCompileInputs.cache
