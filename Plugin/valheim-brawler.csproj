@@ -380,6 +380,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Prefabs\IronChain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="valheim-brawler.cs" />
   </ItemGroup>

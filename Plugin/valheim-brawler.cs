@@ -2,11 +2,13 @@
 using HarmonyLib;
 using JotunnLib.Entities;
 using JotunnLib.Managers;
+using JotunnLib.Utils;
 using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
+using valheimbrawler.Prefabs;
 
 namespace valheimbrawler
 {
@@ -14,7 +16,7 @@ namespace valheimbrawler
     [BepInDependency(JotunnLib.JotunnLib.ModGuid)]
     
 
-    public class Mod : BaseUnityPlugin
+    public class valheimbrawler : BaseUnityPlugin
     {
         private readonly Harmony harmony = new Harmony("zarboz.valheim-brawler");
         public static GameObject BMCestus { get; private set; }
@@ -30,12 +32,12 @@ namespace valheimbrawler
         {
             AssetBundle assetBundle = AssetBundleHelper.GetAssetBundleFromResources("valheim-brawler");
 
-            Mod.BMCestus = assetBundle.LoadAsset<GameObject>("BlackMetalCestus");
-            Mod.BCestus = assetBundle.LoadAsset<GameObject>("BronzeCestus");
-            Mod.ICestus = assetBundle.LoadAsset<GameObject>("IronCestus");
-            Mod.SCestus = assetBundle.LoadAsset<GameObject>("SilverCestus");
-            Mod.SKnucks = assetBundle.LoadAsset<GameObject>("StuddedKnuckles");
-            Mod.WKnucks = assetBundle.LoadAsset<GameObject>("WoodKnuckles");
+            valheimbrawler.BMCestus = assetBundle.LoadAsset<GameObject>("BlackMetalCestus");
+            valheimbrawler.BCestus = assetBundle.LoadAsset<GameObject>("BronzeCestus");
+            valheimbrawler.ICestus = assetBundle.LoadAsset<GameObject>("IronCestus");
+            valheimbrawler.SCestus = assetBundle.LoadAsset<GameObject>("SilverCestus");
+            valheimbrawler.SKnucks = assetBundle.LoadAsset<GameObject>("StuddedKnuckles");
+            valheimbrawler.WKnucks = assetBundle.LoadAsset<GameObject>("WoodKnuckles");
 
 
             ObjectManager.Instance.ObjectRegister += InitObjects;
@@ -51,12 +53,14 @@ namespace valheimbrawler
 
         private void RegisterPrefabs(object sender, EventArgs e)
         {
-            PrefabManager.Instance.RegisterPrefab(Mod.BMCestus, "BlackMetalCestus");
-            PrefabManager.Instance.RegisterPrefab(Mod.BCestus, "BronzeCestus");
-            PrefabManager.Instance.RegisterPrefab(Mod.ICestus, "IronCestus");
-            PrefabManager.Instance.RegisterPrefab(Mod.SCestus, "SilverCestus");
-            PrefabManager.Instance.RegisterPrefab(Mod.SKnucks, "StuddedKnuckles");
-            PrefabManager.Instance.RegisterPrefab(Mod.WKnucks, "WoodKnuckles");
+            PrefabManager.Instance.RegisterPrefab(valheimbrawler.BMCestus, "BlackMetalCestus");
+            PrefabManager.Instance.RegisterPrefab(valheimbrawler.BCestus, "BronzeCestus");
+            PrefabManager.Instance.RegisterPrefab(valheimbrawler.ICestus, "IronCestus");
+            PrefabManager.Instance.RegisterPrefab(valheimbrawler.SCestus, "SilverCestus");
+            PrefabManager.Instance.RegisterPrefab(valheimbrawler.SKnucks, "StuddedKnuckles");
+            PrefabManager.Instance.RegisterPrefab(valheimbrawler.WKnucks, "WoodKnuckles");
+            PrefabManager.Instance.RegisterPrefab(new Chainprefab());
+
         }
 
         private void InitObjects(object sender, EventArgs e)
@@ -68,6 +72,8 @@ namespace valheimbrawler
             ObjectManager.Instance.RegisterItem("SilverCestus");
             ObjectManager.Instance.RegisterItem("StuddedKnuckles");
             ObjectManager.Instance.RegisterItem("WoodKnuckles");
+            ObjectManager.Instance.RegisterItem("Iron_Chain");
+
 
             ObjectManager.Instance.RegisterRecipe(new RecipeConfig()
             {
@@ -92,7 +98,7 @@ namespace valheimbrawler
                     },
                     new PieceRequirementConfig()
                     {
-                        Item = "Iron",
+                        Item = "Iron_Chain",
                         Amount = 5
                     },
                },
@@ -217,6 +223,34 @@ namespace valheimbrawler
                     }
                },
             });
+
+            ObjectManager.Instance.RegisterRecipe(new RecipeConfig()
+            {
+
+                Name = "Recipe_IronChain",
+                Item = "Iron_Chain",
+                Amount = 1,
+                MinStationLevel = 2,
+                CraftingStation = "forge",
+                RepairStation = "forge",
+                Requirements = new PieceRequirementConfig[]
+               {
+                    new PieceRequirementConfig()
+                    {
+                        Item = "Iron",
+                        Amount = 5
+                    },
+                    new PieceRequirementConfig()
+                    {
+                        Item = "Coal",
+                        Amount = 2
+                    }
+               },
+            });
+
+            
+
+
 
         }
 
