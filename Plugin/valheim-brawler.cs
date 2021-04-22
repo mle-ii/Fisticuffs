@@ -12,7 +12,7 @@ using valheimbrawler.Prefabs;
 
 namespace valheimbrawler
 {
-    [BepInPlugin("zarboz.valheim-brawler", "valheim-brawler", "1.0.0")]
+    [BepInPlugin("zarboz.valheim-brawler", "valheim-brawler", "1.0.1")]
     [BepInDependency(JotunnLib.JotunnLib.ModGuid)]
     
 
@@ -183,9 +183,9 @@ namespace valheimbrawler
                 Name = "Recipe_StuddedKnuckles",
                 Item = "StuddedKnuckles",
                 Amount = 1,
-                MinStationLevel = 2,
-                CraftingStation = "forge",
-                RepairStation = "forge",
+                MinStationLevel = 1,
+                CraftingStation = "piece_workbench",
+                RepairStation = "piece_workbench",
                 Requirements = new PieceRequirementConfig[]
                {
                     new PieceRequirementConfig()
@@ -196,7 +196,7 @@ namespace valheimbrawler
                     new PieceRequirementConfig()
                     {
                         Item = "BoneFragments",
-                        Amount = 10
+                        Amount = 5
                     }
                },
             });
@@ -206,9 +206,9 @@ namespace valheimbrawler
                 Name = "Recipe_WoodKnuckles",
                 Item = "WoodKnuckles",
                 Amount = 1,
-                MinStationLevel = 2,
-                CraftingStation = "forge",
-                RepairStation = "forge",
+                MinStationLevel = 1,
+                CraftingStation = "piece_workbench",
+                RepairStation = "piece_workbench",
                 Requirements = new PieceRequirementConfig[]
                {
                     new PieceRequirementConfig()
@@ -219,7 +219,7 @@ namespace valheimbrawler
                     new PieceRequirementConfig()
                     {
                         Item = "Wood",
-                        Amount = 5
+                        Amount = 2
                     }
                },
             });
