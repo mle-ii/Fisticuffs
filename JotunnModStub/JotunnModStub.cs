@@ -32,7 +32,7 @@ namespace JotunnModStub
         {
 
             LoadAssets();
-            CreateFood();
+            CreateThing();
         }
 
 
@@ -45,27 +45,33 @@ namespace JotunnModStub
         private void LoadAssets()
         {
             Jotunn.Logger.LogInfo($"Embedded resources: {string.Join(",", Assembly.GetExecutingAssembly().GetManifestResourceNames())}");
-            embeddedResourceBundle = AssetUtils.LoadAssetBundleFromResources("masterchef", Assembly.GetExecutingAssembly());
+            embeddedResourceBundle = AssetUtils.LoadAssetBundleFromResources("bow", Assembly.GetExecutingAssembly());
             //insert prefabs here
-            turnipburgerfab = embeddedResourceBundle.LoadAsset<GameObject>("Assets/MasterChef/turnip_burger/turnipburger.prefab");
+            //turnipburgerfab = embeddedResourceBundle.LoadAsset<GameObject>("Assets/Weaponsssets/BowBryan.prefab");
 
 
         }
 
-        private void CreateFood()
+        private void CreateThing()
         {
-            var burger_prefab = embeddedResourceBundle.LoadAsset<GameObject>("turnipburger");
-            var burger = new CustomItem(burger_prefab, fixReference: false,
+            var burger_prefab = embeddedResourceBundle.LoadAsset<GameObject>("BowZarboz");
+            var burger = new CustomItem(burger_prefab, fixReference: true,
                 new ItemConfig
                 {
                     Amount = 1,
-                    CraftingStation = "piece_cauldron",
+                    CraftingStation = "forge",
+                    MinStationLevel = 2,
+                    RepairStation = "forge",
                     Requirements = new[]
                     {
-                        new RequirementConfig { Item = "Honey", Amount = 1}
+                        new RequirementConfig { Item = "Honey", Amount = 1},
+                        new RequirementConfig { Item = "DragonTear", Amount = 1},
+                        new RequirementConfig { Item = "Brass", Amount = 3, AmountPerLevel = 10}
                     }
                 });
             ItemManager.Instance.AddItem(burger);
+            //PrefabManager.Instance.AddPrefab(burger_prefab);
+
         }
 
         //can clone a prefab from game with this but it duplicates CreateFood() in a non working way
