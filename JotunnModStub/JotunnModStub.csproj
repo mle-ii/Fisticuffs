@@ -86,6 +86,7 @@
     <None Include="AssetsEmbedded\masterchef" />
     <EmbeddedResource Include="AssetsEmbedded\bow" />
     <None Include="AssetsEmbedded\potion" />
+    <None Include="AssetsEmbedded\valheim-brawler" />
     <None Include="packages.config" />
     <None Include="Package\README.md" />
   </ItemGroup>

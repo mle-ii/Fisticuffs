@@ -33,6 +33,7 @@ namespace JotunnModStub
 
             LoadAssets();
             CreateThing();
+            IronChain();
         }
 
 
@@ -45,16 +46,12 @@ namespace JotunnModStub
         private void LoadAssets()
         {
             Jotunn.Logger.LogInfo($"Embedded resources: {string.Join(",", Assembly.GetExecutingAssembly().GetManifestResourceNames())}");
-            embeddedResourceBundle = AssetUtils.LoadAssetBundleFromResources("bow", Assembly.GetExecutingAssembly());
-            //insert prefabs here
-            //turnipburgerfab = embeddedResourceBundle.LoadAsset<GameObject>("Assets/Weaponsssets/BowBryan.prefab");
-
-
+            embeddedResourceBundle = AssetUtils.LoadAssetBundleFromResources("valheim-brawler", Assembly.GetExecutingAssembly());
         }
 
         private void CreateThing()
         {
-            var burger_prefab = embeddedResourceBundle.LoadAsset<GameObject>("BowZarboz");
+            var burger_prefab = embeddedResourceBundle.LoadAsset<GameObject>("BlackMetalCestus");
             var burger = new CustomItem(burger_prefab, fixReference: true,
                 new ItemConfig
                 {
@@ -66,22 +63,40 @@ namespace JotunnModStub
                     {
                         new RequirementConfig { Item = "Honey", Amount = 1},
                         new RequirementConfig { Item = "DragonTear", Amount = 1},
-                        new RequirementConfig { Item = "Brass", Amount = 3, AmountPerLevel = 10}
+                        new RequirementConfig { Item = "Bronze", Amount = 3, AmountPerLevel = 10}
                     }
                 });
             ItemManager.Instance.AddItem(burger);
-            //PrefabManager.Instance.AddPrefab(burger_prefab);
+
+            var bcestus_prefab = embeddedResourceBundle.LoadAsset<GameObject>("BronzeCestus");
+            var bcestus = new CustomItem(bcestus_prefab, fixReference: true,
+                new ItemConfig
+                { 
+                    Amount =1,
+                    CraftingStation = "forge",
+                    MinStationLevel = 2,
+                    RepairStation = "forge",
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "Bronze", Amount = 1},
+                    }
+                
+                
+                });
+            ItemManager.Instance.AddItem(bcestus);
 
         }
 
         //can clone a prefab from game with this but it duplicates CreateFood() in a non working way
-        private void Foodrecipes()
+        private void IronChain()
         {
             CustomRecipe turnipburger = new CustomRecipe(new RecipeConfig()
             {
-                Item = "turnipburger",
-                CraftingStation = "piece_cauldron",
-                Amount = 1,
+                Item = "Chain",
+                Name = "Iron Chain",
+                CraftingStation = "forge",
+                RepairStation = "forge",
+                Amount = 5,
                 Requirements = new[]
                 {
                     new RequirementConfig {Item = "Honey", Amount = 1}
