@@ -7,8 +7,8 @@
     <ProjectGuid>{4C2C2CF0-05F9-42C9-AD1D-5CD040D06344}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>valheimbrawler</RootNamespace>
-    <AssemblyName>valheim-brawler</AssemblyName>
+    <RootNamespace>Fisticuffs</RootNamespace>
+    <AssemblyName>Fisticuffs</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

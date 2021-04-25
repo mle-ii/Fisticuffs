@@ -10,15 +10,15 @@ using System.Reflection;
 using UnityEngine;
 using valheimbrawler.Prefabs;
 
-namespace valheimbrawler
+namespace fisticuffs
 {
-    [BepInPlugin("zarboz.valheim-brawler", "valheim-brawler", "1.0.1")]
+    [BepInPlugin("zarboz.fisticuffs", "fisticuffs", "1.0.4")]
     [BepInDependency(JotunnLib.JotunnLib.ModGuid)]
     
 
     public class valheimbrawler : BaseUnityPlugin
     {
-        private readonly Harmony harmony = new Harmony("zarboz.valheim-brawler");
+        private readonly Harmony harmony = new Harmony("zarboz.fisticuffs");
         public static GameObject BMCestus { get; private set; }
         public static GameObject BCestus { get; private set; }
         public static GameObject ICestus { get; private set; }

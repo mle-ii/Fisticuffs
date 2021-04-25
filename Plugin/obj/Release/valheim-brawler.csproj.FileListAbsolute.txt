@@ -162,9 +162,6 @@ C:\Users\mugen\source\repos\jotunnlib\Weapons\bin\Release\valheim-brawler.dll
 C:\Users\mugen\source\repos\jotunnlib\Weapons\bin\Release\valheim-brawler.pdb
 C:\Users\mugen\source\repos\jotunnlib\Weapons\obj\Release\valheim-brawler.dll
 C:\Users\mugen\source\repos\jotunnlib\Weapons\obj\Release\valheim-brawler.pdb
-C:\Users\mugen\source\repos\valheim-brawler\Plugin\bin\Release\valheim-brawler.dll.config
-C:\Users\mugen\source\repos\valheim-brawler\Plugin\bin\Release\valheim-brawler.dll
-C:\Users\mugen\source\repos\valheim-brawler\Plugin\bin\Release\valheim-brawler.pdb
 C:\Users\mugen\source\repos\valheim-brawler\Plugin\bin\Release\0Harmony.dll
 C:\Users\mugen\source\repos\valheim-brawler\Plugin\bin\Release\assembly_guiutils.dll
 C:\Users\mugen\source\repos\valheim-brawler\Plugin\bin\Release\assembly_lux.dll
@@ -323,5 +320,9 @@ C:\Users\mugen\source\repos\valheim-brawler\Plugin\bin\Release\UnityEngine.XRMod
 C:\Users\mugen\source\repos\valheim-brawler\Plugin\obj\Release\valheim-brawler.csprojAssemblyReference.cache
 C:\Users\mugen\source\repos\valheim-brawler\Plugin\obj\Release\valheim-brawler.csproj.CoreCompileInputs.cache
 C:\Users\mugen\source\repos\valheim-brawler\Plugin\obj\Release\valheim-brawler.csproj.CopyComplete
-C:\Users\mugen\source\repos\valheim-brawler\Plugin\obj\Release\valheim-brawler.dll
-C:\Users\mugen\source\repos\valheim-brawler\Plugin\obj\Release\valheim-brawler.pdb
+C:\Users\mugen\source\repos\valheim-brawler\Plugin\bin\Release\assembly_googleanalytics.dll
+C:\Users\mugen\source\repos\valheim-brawler\Plugin\bin\Release\Fisticuffs.dll.config
+C:\Users\mugen\source\repos\valheim-brawler\Plugin\bin\Release\Fisticuffs.dll
+C:\Users\mugen\source\repos\valheim-brawler\Plugin\bin\Release\Fisticuffs.pdb
+C:\Users\mugen\source\repos\valheim-brawler\Plugin\obj\Release\Fisticuffs.dll
+C:\Users\mugen\source\repos\valheim-brawler\Plugin\obj\Release\Fisticuffs.pdb

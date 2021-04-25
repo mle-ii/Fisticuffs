@@ -161,3 +161,4 @@ C:\Users\mugen\source\repos\valheim-brawler\Plugin\bin\Debug\UnityEngine.XRModul
 C:\Users\mugen\source\repos\valheim-brawler\Plugin\obj\Debug\valheim-brawler.csproj.CopyComplete
 C:\Users\mugen\source\repos\valheim-brawler\Plugin\obj\Debug\valheim-brawler.dll
 C:\Users\mugen\source\repos\valheim-brawler\Plugin\obj\Debug\valheim-brawler.pdb
+C:\Users\mugen\source\repos\valheim-brawler\Plugin\bin\Debug\assembly_googleanalytics.dll
