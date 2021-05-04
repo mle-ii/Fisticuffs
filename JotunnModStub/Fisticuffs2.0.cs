@@ -218,7 +218,11 @@ namespace JotunnModStub
             ItemManager.Instance.AddRecipe(IronChain);
 
         }
+       
+        private void test()
+        {
+            SkillManager.Instance.GetSkill(Skills.SkillType.Unarmed);
+        }
 
- 
     }
 }
