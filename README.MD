@@ -87,4 +87,7 @@ Please ensure you are running this mod on the server you want to connect to as w
 
 This mod is client AND server intended you WILL need it both on your server and clients to run ;) 
 
+V1.1.1-1.1.2
+Fix minor build issues with crafting station reqs and repair reqs
+
 
