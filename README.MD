@@ -73,3 +73,17 @@ Prefab names:
 **V1.0.6**
 
 Change forge tier reqs for building so they can pan out to full tier with upgrades etc 
+
+
+**V1.1.0**
+
+Updated lib base to new Jotunn 2.0.5
+Enacted config file with in game config options (courtesy of Jotunn)
+Enacted server sync configs (so servers can enforce item enabled/disabled or recipe volume of things)
+Enacted version checking (thanks again Jotunn)
+
+Thanks to new Jotunn we can now see our Cestus at the loading screen when the character is holding the weapon. 
+Please ensure you are running this mod on the server you want to connect to as well as the latest Jotunn 
+
+This mod is client AND server intended 
+
