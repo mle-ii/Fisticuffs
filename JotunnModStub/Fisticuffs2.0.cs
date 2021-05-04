@@ -32,15 +32,10 @@ namespace JotunnModStub
         {
 
             LoadAssets();
-            CreateThing();
+            BlackMetal();
             IronChain();
         }
 
-
-        private void Update()
-        {
-  
-        }
 
 
         private void LoadAssets()
@@ -48,8 +43,7 @@ namespace JotunnModStub
             Jotunn.Logger.LogInfo($"Embedded resources: {string.Join(",", Assembly.GetExecutingAssembly().GetManifestResourceNames())}");
             embeddedResourceBundle = AssetUtils.LoadAssetBundleFromResources("valheim-brawler", Assembly.GetExecutingAssembly());
         }
-
-        private void CreateThing()
+        private void BlackMetal()
         {
             var burger_prefab = embeddedResourceBundle.LoadAsset<GameObject>("BlackMetalCestus");
             var burger = new CustomItem(burger_prefab, fixReference: true,
@@ -86,8 +80,6 @@ namespace JotunnModStub
             ItemManager.Instance.AddItem(bcestus);
 
         }
-
-        //can clone a prefab from game with this but it duplicates CreateFood() in a non working way
         private void IronChain()
         {
             CustomRecipe turnipburger = new CustomRecipe(new RecipeConfig()
