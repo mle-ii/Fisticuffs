@@ -85,5 +85,6 @@ Enacted version checking (thanks again Jotunn)
 Thanks to new Jotunn we can now see our Cestus at the loading screen when the character is holding the weapon. 
 Please ensure you are running this mod on the server you want to connect to as well as the latest Jotunn 
 
-This mod is client AND server intended 
+This mod is client AND server intended you WILL need it both on your server and clients to run ;) 
+
 

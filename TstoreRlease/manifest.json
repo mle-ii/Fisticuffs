@@ -1,10 +1,10 @@
 {
     "name": "Fisticuffs",
-    "version_number": "1.0.6",
+    "version_number": "1.1.2",
     "website_url": "https://github.com/sbtoonz/valheim-brawler",
     "description": "Fisticuffs (Formerly Valheim Brawler) adds six tiers of unarmed weapons to the game from wood to black metal.",
     "dependencies": [
-        "denikson-BepInExPack_Valheim-5.4.901", 
-		"JotunnLibTeam-JotunnLib-0.1.6"
+        "denikson-BepInExPack_Valheim-5.4.1000", 
+		"ValheimModding-Jotunn-2.0.5"
     ]
 }

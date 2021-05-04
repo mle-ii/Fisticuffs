@@ -16,7 +16,7 @@ namespace JotunnModStub
     {
         public const string PluginGUID = "org.zarboz.fisticuffs";
         public const string PluginName = "Fisticuffs";
-        public const string PluginVersion = "1.1.1";
+        public const string PluginVersion = "1.1.2";
         public static new Jotunn.Logger Logger;
         private AssetBundle fisticuffsassets;
         private ConfigEntry<bool> configBlackmetal;
@@ -71,7 +71,7 @@ namespace JotunnModStub
                     Amount = 1,
                     Enabled = (bool)configBlackmetal.BoxedValue,
                     CraftingStation = "forge",
-                    MinStationLevel = 2,
+                    MinStationLevel = 4,
                     RepairStation = "forge",
                     Requirements = new[]
                     {
@@ -94,7 +94,7 @@ namespace JotunnModStub
                     Amount = 1,
                     Enabled = (bool)configBronze.BoxedValue,
                     CraftingStation = "forge",
-                    MinStationLevel = 2,
+                    MinStationLevel = 3,
                     RepairStation = "forge",
                     Requirements = new[]
                     {
@@ -117,7 +117,7 @@ namespace JotunnModStub
                     Amount = 1,
                     Enabled = (bool)configSilver.BoxedValue,
                     CraftingStation = "forge",
-                    MinStationLevel = 2,
+                    MinStationLevel = 4,
                     RepairStation = "forge",
                     Requirements = new[]
                     {
@@ -139,7 +139,7 @@ namespace JotunnModStub
                     Amount = 1,
                     Enabled = (bool)configIron.BoxedValue,
                     CraftingStation = "forge",
-                    MinStationLevel = 2,
+                    MinStationLevel = 4,
                     RepairStation = "forge",
                     Requirements = new[]
                     {
@@ -160,9 +160,9 @@ namespace JotunnModStub
                 {
                     Amount = 1,
                     Enabled = (bool)configBone.BoxedValue,
-                    CraftingStation = "forge",
+                    CraftingStation = "piece_workbench",
                     MinStationLevel = 2,
-                    RepairStation = "forge",
+                    RepairStation = "piece_workbench",
                     Requirements = new[]
                     {
                         new RequirementConfig {Item = "LeatherScarps", Amount = 5, AmountPerLevel = 2},
@@ -182,9 +182,9 @@ namespace JotunnModStub
                 {
                     Amount = 1,
                     Enabled = (bool)configwood.BoxedValue,
-                    CraftingStation = "forge",
+                    CraftingStation = null,
                     MinStationLevel = 2,
-                    RepairStation = "forge",
+                    RepairStation = "piece_workbench",
                     Requirements = new[]
                     {
                         new RequirementConfig {Item = "LeatherScraps", Amount = 1},
@@ -214,11 +214,7 @@ namespace JotunnModStub
             ItemManager.Instance.AddRecipe(IronChain);
 
         }
-       
-        private void test()
-        {
-            SkillManager.Instance.GetSkill(Skills.SkillType.Unarmed);
-        }
+
 
     }
 }
