@@ -45,8 +45,8 @@ jobs:
       # Install NuGet dependencies
       - name: Install NuGet dependencies
         run: |
-          nuget restore JotunnModStub.sln
-          dotnet restore JotunnModStub/JotunnModStub.csproj
+          nuget restore Fisticuffs2.0.sln
+          dotnet restore Fisticuffs/Fisticuffs2.0.csproj
 
       # Cache the results
       - name: Cache Valheim
