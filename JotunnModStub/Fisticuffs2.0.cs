@@ -11,12 +11,12 @@ namespace JotunnModStub
 {
     [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
     [BepInDependency(Jotunn.Main.ModGuid)]
-    [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
+    [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Major)]
     internal class JotunnModStub : BaseUnityPlugin
     {
         public const string PluginGUID = "org.zarboz.fisticuffs";
         public const string PluginName = "Fisticuffs";
-        public const string PluginVersion = "1.1.0";
+        public const string PluginVersion = "1.1.1";
         public static new Jotunn.Logger Logger;
         private AssetBundle fisticuffsassets;
         private ConfigEntry<bool> configBlackmetal;
