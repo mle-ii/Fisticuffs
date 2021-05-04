@@ -21,11 +21,10 @@ namespace JotunnModStub
     internal class JotunnModStub : BaseUnityPlugin
     {
         public const string PluginGUID = "com.jotunn.jotunnmodstub";
-        public const string PluginName = "JotunnModStub";
+        public const string PluginName = "Fisticuffs";
         public const string PluginVersion = "0.0.1";
         public static new Jotunn.Logger Logger;
         private AssetBundle fisticuffsassets;
-
 
         private void Awake()
         {
@@ -38,8 +37,6 @@ namespace JotunnModStub
             WoodKnuckle();
             IronChain();
         }
-
-
 
         private void LoadAssets()
         {
@@ -58,9 +55,9 @@ namespace JotunnModStub
                     RepairStation = "forge",
                     Requirements = new[]
                     {
-                        new RequirementConfig { Item = "Honey", Amount = 1},
-                        new RequirementConfig { Item = "DragonTear", Amount = 1},
-                        new RequirementConfig { Item = "Bronze", Amount = 3, AmountPerLevel = 10}
+                        new RequirementConfig { Item = "LeatherScraps", Amount = 1, AmountPerLevel = 5},
+                        new RequirementConfig { Item = "BlackMetal", Amount = 1, AmountPerLevel = 5},
+                        new RequirementConfig { Item = "Iron_Chain", Amount = 3, AmountPerLevel = 10}
                     }
                 });
             ItemManager.Instance.AddItem(bmetal);
@@ -80,7 +77,9 @@ namespace JotunnModStub
                     RepairStation = "forge",
                     Requirements = new[]
                     {
-                        new RequirementConfig {Item = "Bronze", Amount = 1},
+                        new RequirementConfig {Item = "Bronze", Amount = 10, AmountPerLevel = 3},
+                        new RequirementConfig {Item = "LeatherScraps", Amount = 5, AmountPerLevel = 4},
+                        new RequirementConfig {Item = "Tin", Amount = 5, AmountPerLevel = 2}
                     }
 
 
@@ -100,7 +99,8 @@ namespace JotunnModStub
                     RepairStation = "forge",
                     Requirements = new[]
                     {
-                        new RequirementConfig {Item = "Iron", Amount = 1},
+                        new RequirementConfig {Item = "LeatherScraps", Amount = 1, AmountPerLevel = 2},
+                        new RequirementConfig {Item = "Silver", Amount = 15, AmountPerLevel = 10}
                     }
 
 
@@ -120,7 +120,8 @@ namespace JotunnModStub
                     RepairStation = "forge",
                     Requirements = new[]
                     {
-                        new RequirementConfig {Item = "Iron", Amount = 1},
+                        new RequirementConfig {Item = "Iron", Amount = 10, AmountPerLevel = 5},
+                        new RequirementConfig {Item = "LeatherScraps", Amount = 5, AmountPerLevel = 5}
                     }
 
 
@@ -140,7 +141,8 @@ namespace JotunnModStub
                     RepairStation = "forge",
                     Requirements = new[]
                     {
-                        new RequirementConfig {Item = "Iron", Amount = 1},
+                        new RequirementConfig {Item = "LeatherScarps", Amount = 5, AmountPerLevel = 2},
+                        new RequirementConfig {Item = "BoneFragments", Amount = 5, AmountPerLevel = 2}
                     }
 
 
@@ -160,36 +162,34 @@ namespace JotunnModStub
                     RepairStation = "forge",
                     Requirements = new[]
                     {
-                        new RequirementConfig {Item = "Iron", Amount = 1},
+                        new RequirementConfig {Item = "LeatherScraps", Amount = 1},
+                        new RequirementConfig {Item = "Wood", Amount = 1}
                     }
 
 
                 });
             ItemManager.Instance.AddItem(twig);
         }
-
         private void IronChain()
         {
-            CustomRecipe turnipburger = new CustomRecipe(new RecipeConfig()
+            CustomRecipe IronChain = new CustomRecipe(new RecipeConfig()
             {
                 Item = "Chain",
                 Name = "Iron Chain",
                 CraftingStation = "forge",
                 RepairStation = "forge",
+                MinStationLevel = 1,
                 Amount = 5,
                 Requirements = new[]
                 {
-                    new RequirementConfig {Item = "Honey", Amount = 1}
+                    new RequirementConfig {Item = "Iron", Amount = 5},
+                    new RequirementConfig {Item = "Caol", Amount = 2}
                 }
             });
-            ItemManager.Instance.AddRecipe(turnipburger);
+            ItemManager.Instance.AddRecipe(IronChain);
 
         }
 
-        private void testthing()
-        {
-            SkillManager.Instance.GetSkill(Skills.SkillType.Unarmed);
-
-        }
+ 
     }
 }
