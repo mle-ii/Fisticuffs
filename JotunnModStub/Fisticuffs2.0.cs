@@ -1,10 +1,4 @@
-﻿// JotunnModStub
-// a Valheim mod skeleton using JötunnLib
-// 
-// File:    JotunnModStub.cs
-// Project: JotunnModStub
-
-using BepInEx;
+﻿using BepInEx;
 using UnityEngine;
 using BepInEx.Configuration;
 using Jotunn.Utils;
@@ -17,17 +11,24 @@ namespace JotunnModStub
 {
     [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
     [BepInDependency(Jotunn.Main.ModGuid)]
-    //[NetworkCompatibilty(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
+    [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
     internal class JotunnModStub : BaseUnityPlugin
     {
-        public const string PluginGUID = "com.jotunn.jotunnmodstub";
+        public const string PluginGUID = "org.zarboz.fisticuffs";
         public const string PluginName = "Fisticuffs";
-        public const string PluginVersion = "0.0.1";
+        public const string PluginVersion = "1.1.0";
         public static new Jotunn.Logger Logger;
         private AssetBundle fisticuffsassets;
+        private ConfigEntry<bool> configBlackmetal;
+        private ConfigEntry<int> Blackmetalcost;
+        private ConfigEntry<bool> configBronze;
+        private ConfigEntry<int> NexusID;
+
+
 
         private void Awake()
         {
+            CreateConfigs();
             LoadAssets();
             BlackMetal();
             BronzeCestus();
@@ -36,6 +37,18 @@ namespace JotunnModStub
             BoneKnuckle();
             WoodKnuckle();
             IronChain();
+        }
+
+        private void CreateConfigs()
+        {
+            Config.SaveOnConfigSet = true;
+
+            NexusID = Config.Bind("FisticuffsConf", "NexusID", 1080, new ConfigDescription("NexusID", new AcceptableValueList<int>(1080), new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            configBlackmetal = Config.Bind("FisticuffsConf", "BlackMetalEnabled", true, new ConfigDescription("Setting To Enable Black Metal Cestus",null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            Blackmetalcost = Config.Bind("FisticuffsConf", "Chain Cost", 4, new ConfigDescription("Chain Cost for Black Metal Cestus",new AcceptableValueRange<int>(0,4), new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            configBronze = Config.Bind("FisticuffsConf", "BronzeCuffEnabled", true, new ConfigDescription("Setting To Enable Bronze Cestus", null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            
+        
         }
 
         private void LoadAssets()
@@ -50,6 +63,7 @@ namespace JotunnModStub
                 new ItemConfig
                 {
                     Amount = 1,
+                    Enabled = configBlackmetal.Value,
                     CraftingStation = "forge",
                     MinStationLevel = 2,
                     RepairStation = "forge",
@@ -57,7 +71,7 @@ namespace JotunnModStub
                     {
                         new RequirementConfig { Item = "LeatherScraps", Amount = 1, AmountPerLevel = 5},
                         new RequirementConfig { Item = "BlackMetal", Amount = 1, AmountPerLevel = 5},
-                        new RequirementConfig { Item = "Iron_Chain", Amount = 3, AmountPerLevel = 10}
+                        new RequirementConfig { Item = "Iron_Chain", Amount = (int)Blackmetalcost.BoxedValue, AmountPerLevel = 10}
                     }
                 });
             ItemManager.Instance.AddItem(bmetal);
@@ -72,6 +86,7 @@ namespace JotunnModStub
                 new ItemConfig
                 {
                     Amount = 1,
+                    Enabled = configBronze.Value,
                     CraftingStation = "forge",
                     MinStationLevel = 2,
                     RepairStation = "forge",
