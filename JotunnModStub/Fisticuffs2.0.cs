@@ -22,6 +22,10 @@ namespace JotunnModStub
         private ConfigEntry<bool> configBlackmetal;
         private ConfigEntry<int> Blackmetalcost;
         private ConfigEntry<bool> configBronze;
+        private ConfigEntry<bool> configIron;
+        private ConfigEntry<bool> configSilver;
+        private ConfigEntry<bool> configBone;
+        private ConfigEntry<bool> configwood;
         private ConfigEntry<int> NexusID;
 
 
@@ -47,8 +51,12 @@ namespace JotunnModStub
             configBlackmetal = Config.Bind("FisticuffsConf", "BlackMetalEnabled", true, new ConfigDescription("Setting To Enable Black Metal Cestus",null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
             Blackmetalcost = Config.Bind("FisticuffsConf", "Chain Cost", 4, new ConfigDescription("Chain Cost for Black Metal Cestus",new AcceptableValueRange<int>(0,4), new ConfigurationManagerAttributes { IsAdminOnly = true }));
             configBronze = Config.Bind("FisticuffsConf", "BronzeCuffEnabled", true, new ConfigDescription("Setting To Enable Bronze Cestus", null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            
-        
+            configIron = Config.Bind("FisticuffsConf", "IronCuffEnabled", true, new ConfigDescription("Setting To Enable Iron Cestus", null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            configSilver = Config.Bind("FisticuffsConf", "SilverCuffEnabled", true, new ConfigDescription("Setting To Enable Silver Cestus", null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            configBone = Config.Bind("FisticuffsConf", "BoneCuffEnabled", true, new ConfigDescription("Setting To Enable Bone Knuckles", null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            configwood = Config.Bind("FisticuffsConf", "twigEnabled", true, new ConfigDescription("Setting To Enable Twig", null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+
+
         }
 
         private void LoadAssets()
@@ -109,6 +117,7 @@ namespace JotunnModStub
                 new ItemConfig
                 {
                     Amount = 1,
+                    Enabled = configSilver.Value,
                     CraftingStation = "forge",
                     MinStationLevel = 2,
                     RepairStation = "forge",
@@ -130,6 +139,7 @@ namespace JotunnModStub
                 new ItemConfig
                 {
                     Amount = 1,
+                    Enabled = configIron.Value,
                     CraftingStation = "forge",
                     MinStationLevel = 2,
                     RepairStation = "forge",
@@ -151,6 +161,7 @@ namespace JotunnModStub
                 new ItemConfig
                 {
                     Amount = 1,
+                    Enabled = configBone.Value,
                     CraftingStation = "forge",
                     MinStationLevel = 2,
                     RepairStation = "forge",
@@ -172,6 +183,7 @@ namespace JotunnModStub
                 new ItemConfig
                 {
                     Amount = 1,
+                    Enabled = configwood.Value,
                     CraftingStation = "forge",
                     MinStationLevel = 2,
                     RepairStation = "forge",
