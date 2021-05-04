@@ -24,13 +24,11 @@ namespace JotunnModStub
         public const string PluginName = "JotunnModStub";
         public const string PluginVersion = "0.0.1";
         public static new Jotunn.Logger Logger;
-        private AssetBundle embeddedResourceBundle;
+        private AssetBundle fisticuffsassets;
 
-        public GameObject turnipburgerfab { get; private set; }
 
         private void Awake()
         {
-
             LoadAssets();
             BlackMetal();
             BronzeCestus();
@@ -46,11 +44,11 @@ namespace JotunnModStub
         private void LoadAssets()
         {
             Jotunn.Logger.LogInfo($"Embedded resources: {string.Join(",", Assembly.GetExecutingAssembly().GetManifestResourceNames())}");
-            embeddedResourceBundle = AssetUtils.LoadAssetBundleFromResources("valheim-brawler", Assembly.GetExecutingAssembly());
+            fisticuffsassets = AssetUtils.LoadAssetBundleFromResources("valheim-brawler", Assembly.GetExecutingAssembly());
         }
         private void BlackMetal()
         {
-            var bmetal_fab = embeddedResourceBundle.LoadAsset<GameObject>("BlackMetalCestus");
+            var bmetal_fab = fisticuffsassets.LoadAsset<GameObject>("BlackMetalCestus");
             var bmetal = new CustomItem(bmetal_fab, fixReference: true,
                 new ItemConfig
                 {
@@ -72,7 +70,7 @@ namespace JotunnModStub
         private void BronzeCestus()
         {
 
-            var bcestus_prefab = embeddedResourceBundle.LoadAsset<GameObject>("BronzeCestus");
+            var bcestus_prefab = fisticuffsassets.LoadAsset<GameObject>("BronzeCestus");
             var bcestus = new CustomItem(bcestus_prefab, fixReference: true,
                 new ItemConfig
                 {
@@ -92,7 +90,7 @@ namespace JotunnModStub
         private void SilverCestus()
         {
 
-            var silver_prefab = embeddedResourceBundle.LoadAsset<GameObject>("SilverCestus");
+            var silver_prefab = fisticuffsassets.LoadAsset<GameObject>("SilverCestus");
             var silvercestus = new CustomItem(silver_prefab, fixReference: true,
                 new ItemConfig
                 {
@@ -112,7 +110,7 @@ namespace JotunnModStub
         private void IronCestus()
         {
 
-            var iron_prefab = embeddedResourceBundle.LoadAsset<GameObject>("IronCestus");
+            var iron_prefab = fisticuffsassets.LoadAsset<GameObject>("IronCestus");
             var ironcestus = new CustomItem(iron_prefab, fixReference: true,
                 new ItemConfig
                 {
@@ -132,7 +130,7 @@ namespace JotunnModStub
         private void BoneKnuckle()
         {
 
-            var bone_prefab = embeddedResourceBundle.LoadAsset<GameObject>("StuddedKnuckles");
+            var bone_prefab = fisticuffsassets.LoadAsset<GameObject>("StuddedKnuckles");
             var boneknuck = new CustomItem(bone_prefab, fixReference: true,
                 new ItemConfig
                 {
@@ -152,7 +150,7 @@ namespace JotunnModStub
         private void WoodKnuckle()
         {
 
-            var twig_fab = embeddedResourceBundle.LoadAsset<GameObject>("WoodKnuckles");
+            var twig_fab = fisticuffsassets.LoadAsset<GameObject>("WoodKnuckles");
             var twig = new CustomItem(twig_fab, fixReference: true,
                 new ItemConfig
                 {
@@ -185,6 +183,12 @@ namespace JotunnModStub
                 }
             });
             ItemManager.Instance.AddRecipe(turnipburger);
+
+        }
+
+        private void testthing()
+        {
+            SkillManager.Instance.GetSkill(Skills.SkillType.Unarmed);
 
         }
     }
