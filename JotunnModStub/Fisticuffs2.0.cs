@@ -26,6 +26,7 @@ namespace JotunnModStub
         private ConfigEntry<bool> configSilver;
         private ConfigEntry<bool> configBone;
         private ConfigEntry<bool> configwood;
+        private ConfigEntry<int> Chainironcost;
         private ConfigEntry<int> NexusID;
 
 
@@ -55,6 +56,7 @@ namespace JotunnModStub
             configSilver = Config.Bind("FisticuffsConf", "SilverCuffEnabled", true, new ConfigDescription("Setting To Enable Silver Cestus", null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
             configBone = Config.Bind("FisticuffsConf", "BoneCuffEnabled", true, new ConfigDescription("Setting To Enable Bone Knuckles", null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
             configwood = Config.Bind("FisticuffsConf", "twigEnabled", true, new ConfigDescription("Setting To Enable Twig", null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            Chainironcost = Config.Bind("FisticuffsConf", "Chain Iron Cost", 5, new ConfigDescription("Iron Cost for Chain", new AcceptableValueRange<int>(0, 10), new ConfigurationManagerAttributes { IsAdminOnly = true }));
 
 
         }
@@ -71,7 +73,7 @@ namespace JotunnModStub
                 new ItemConfig
                 {
                     Amount = 1,
-                    Enabled = configBlackmetal.Value,
+                    Enabled = (bool)configBlackmetal.BoxedValue,
                     CraftingStation = "forge",
                     MinStationLevel = 2,
                     RepairStation = "forge",
@@ -94,7 +96,7 @@ namespace JotunnModStub
                 new ItemConfig
                 {
                     Amount = 1,
-                    Enabled = configBronze.Value,
+                    Enabled = (bool)configBronze.BoxedValue,
                     CraftingStation = "forge",
                     MinStationLevel = 2,
                     RepairStation = "forge",
@@ -117,7 +119,7 @@ namespace JotunnModStub
                 new ItemConfig
                 {
                     Amount = 1,
-                    Enabled = configSilver.Value,
+                    Enabled = (bool)configSilver.BoxedValue,
                     CraftingStation = "forge",
                     MinStationLevel = 2,
                     RepairStation = "forge",
@@ -139,7 +141,7 @@ namespace JotunnModStub
                 new ItemConfig
                 {
                     Amount = 1,
-                    Enabled = configIron.Value,
+                    Enabled = (bool)configIron.BoxedValue,
                     CraftingStation = "forge",
                     MinStationLevel = 2,
                     RepairStation = "forge",
@@ -161,7 +163,7 @@ namespace JotunnModStub
                 new ItemConfig
                 {
                     Amount = 1,
-                    Enabled = configBone.Value,
+                    Enabled = (bool)configBone.BoxedValue,
                     CraftingStation = "forge",
                     MinStationLevel = 2,
                     RepairStation = "forge",
@@ -183,7 +185,7 @@ namespace JotunnModStub
                 new ItemConfig
                 {
                     Amount = 1,
-                    Enabled = configwood.Value,
+                    Enabled = (bool)configwood.BoxedValue,
                     CraftingStation = "forge",
                     MinStationLevel = 2,
                     RepairStation = "forge",
@@ -209,7 +211,7 @@ namespace JotunnModStub
                 Amount = 5,
                 Requirements = new[]
                 {
-                    new RequirementConfig {Item = "Iron", Amount = 5},
+                    new RequirementConfig {Item = "Iron", Amount = (int)Chainironcost.BoxedValue},
                     new RequirementConfig {Item = "Caol", Amount = 2}
                 }
             });
