@@ -216,5 +216,10 @@ namespace JotunnModStub
         }
 
 
+        private void Test()
+        {
+            Player.m_localPlayer.GetSkills().GetSkill(Skills.SkillType.Unarmed);
+        }
+
     }
 }
