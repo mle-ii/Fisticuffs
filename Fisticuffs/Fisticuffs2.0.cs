@@ -29,8 +29,6 @@ namespace JotunnModStub
         private ConfigEntry<int> Chainironcost;
         private ConfigEntry<int> NexusID;
 
-
-
         private void Awake()
         {
             CreateConfigs();
@@ -57,8 +55,6 @@ namespace JotunnModStub
             configBone = Config.Bind("FisticuffsConf", "BoneCuffEnabled", true, new ConfigDescription("Setting To Enable Bone Knuckles", null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
             configwood = Config.Bind("FisticuffsConf", "twigEnabled", true, new ConfigDescription("Setting To Enable Twig", null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
             Chainironcost = Config.Bind("FisticuffsConf", "Chain Iron Cost", 5, new ConfigDescription("Iron Cost for Chain", new AcceptableValueRange<int>(0, 10), new ConfigurationManagerAttributes { IsAdminOnly = true }));
-
-
         }
 
         private void LoadAssets()
